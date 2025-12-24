@@ -1,0 +1,50 @@
+{
+  "name": "tarjeta-navidena-2026",
+  "version": "1.2.0",
+  "description": "Elegante tarjeta de felicitación navideña con animaciones premium y efectos interactivos",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'No build process needed - static files ready for deployment'",
+    "deploy": "echo 'Ready for deployment to any static hosting service'"
+  },
+  "keywords": [
+    "christmas",
+    "navidad",
+    "tarjeta",
+    "animaciones",
+    "css3",
+    "javascript",
+    "interactivo",
+    "elegante",
+    "premium",
+    "responsive"
+  ],
+  "author": {
+    "name": "Estefanía San Miguel Mas",
+    "email": ""
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  }
+}

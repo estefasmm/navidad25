@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa del Mensaje</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0a1a2e 0%, #16213e 25%, #1a2332 50%, #0f1419 100%);
+            color: #F8F6F0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .preview-container {
+            background: rgba(25, 25, 112, 0.2);
+            border: 1px solid rgba(247, 231, 206, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .message {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: 400;
+            font-style: italic;
+            text-align: center;
+            color: #F8F6F0;
+            letter-spacing: 0.5px;
+            line-height: 1.618;
+            text-shadow: 
+                0 0 12px rgba(248, 246, 240, 0.4),
+                1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        .message div {
+            margin: 10px 0;
+        }
+        .code-highlight {
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        .title {
+            font-size: 1.5rem;
+            color: #FFFFF0;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 240, 0.6);
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background: rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <h1 class="title">🎄 Vista Previa del Mensaje</h1>
+        
+        <div class="message">
+            <div>Que la alegría sea tu <span class="code-highlight">'frontend'</span>, y los buenos momentos tu <span class="code-highlight">'backend'</span>.</div>
+            <div>Por un año en que cada <span class="code-highlight">'commit'</span> de tu vida sea un paso hacia tus sueños.</div>
+        </div>
+        
+        <a href="index.html" class="back-link">Ver Tarjeta Completa</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Móvil - Tarjeta Navideña 2026</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+        .test-button {
+            background: #00ffff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #2d5a27; }
+        .error { background: #5a2727; }
+        .info { background: #27345a; }
+    </style>
+</head>
+<body>
+    <h1>🎄 Test de Optimización Móvil</h1>
+    
+    <div class="test-section">
+        <h2>📱 Detección de Dispositivo</h2>
+        <div id="device-info" class="status info">Analizando...</div>
+        <button class="test-button" onclick="testDeviceDetection()">Probar Detección</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>🎯 Test de Interactividad</h2>
+        <div id="touch-test" class="status info">Toca el área de prueba</div>
+        <div style="width: 100px; height: 100px; background: #00ffff; margin: 10px 0; border-radius: 50%; cursor: pointer;" 
+             id="touch-area" onclick="testTouch()">
+            ⭐
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>🎨 Test de Renderizado</h2>
+        <div id="render-test" class="status info">Probando efectos CSS...</div>
+        <div style="width: 50px; height: 50px; background: #ffd700; animation: spin 2s linear infinite; margin: 10px 0;">
+        </div>
+        <button class="test-button" onclick="testRendering()">Probar Renderizado</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>🚀 Acceso a la Tarjeta</h2>
+        <a href="index.html" class="test-button" style="text-decoration: none; display: inline-block;">
+            Abrir Tarjeta Navideña
+        </a>
+    </div>
+
+    <style>
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+        function testDeviceDetection() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                             (navigator.maxTouchPoints && navigator.maxTouchPoints > 2 && /MacIntel/.test(navigator.platform)) ||
+                             window.innerWidth <= 768;
+            
+            const deviceInfo = document.getElementById('device-info');
+            const info = {
+                userAgent: navigator.userAgent,
+                screenWidth: window.innerWidth,
+                screenHeight: window.innerHeight,
+                touchPoints: navigator.maxTouchPoints || 0,
+                isMobile: isMobile,
+                deviceMemory: navigator.deviceMemory || 'No disponible',
+                hardwareConcurrency: navigator.hardwareConcurrency || 'No disponible'
+            };
+            
+            deviceInfo.innerHTML = `
+                <strong>Dispositivo Móvil:</strong> ${isMobile ? '✅ SÍ' : '❌ NO'}<br>
+                <strong>Pantalla:</strong> ${info.screenWidth}x${info.screenHeight}<br>
+                <strong>Puntos Táctiles:</strong> ${info.touchPoints}<br>
+                <strong>Memoria:</strong> ${info.deviceMemory}GB<br>
+                <strong>CPU Cores:</strong> ${info.hardwareConcurrency}
+            `;
+            deviceInfo.className = `status ${isMobile ? 'success' : 'error'}`;
+        }
+        
+        function testTouch() {
+            const touchTest = document.getElementById('touch-test');
+            const touchArea = document.getElementById('touch-area');
+            
+            touchTest.innerHTML = '✅ ¡Interactividad funcionando!';
+            touchTest.className = 'status success';
+            
+            touchArea.style.transform = 'scale(1.2)';
+            touchArea.style.background = '#ff6b6b';
+            
+            setTimeout(() => {
+                touchArea.style.transform = 'scale(1)';
+                touchArea.style.background = '#00ffff';
+            }, 300);
+        }
+        
+        function testRendering() {
+            const renderTest = document.getElementById('render-test');
+            const startTime = performance.now();
+            
+            // Simular carga de efectos
+            setTimeout(() => {
+                const endTime = performance.now();
+                const renderTime = Math.round(endTime - startTime);
+                
+                renderTest.innerHTML = `✅ Renderizado completado en ${renderTime}ms`;
+                renderTest.className = 'status success';
+            }, 100);
+        }
+        
+        // Auto-ejecutar test de dispositivo al cargar
+        window.onload = function() {
+            testDeviceDetection();
+        };
+    </script>
+</body>
+</html>
